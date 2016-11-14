@@ -1,21 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-class App extends Component {
+
+class Validator extends Component {
+
+
+  constructor(props){
+    super()
+  }
+  handleClick(e){
+    let email = document.getElementById("email").value
+    let password = document.getElementById("password").value
+    let confirmation = document.getElementById("confirmation").value
+
+    if (password === confirmation){
+      return alert("Log in created!")
+    }
+    else{
+      return alert("Password does not match.")
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <div>
+          <form>
+          <h3>Email</h3>
+            <input id="email" type="text" placeholder="Email" />
+            <h3>Password</h3>
+            <input id="password" type="text" placeholder="Password" />
+            <h3>Confirm Password</h3>
+            <input id="confirmation" type="text" placeholder="Password Confirmation" />
+            <button onClick={(e) => this.handleClick(e)}>Confirm</button>
+          </form>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
     );
   }
 }
 
-export default App;
+export default Validator;
+//forms dont need to change, just need to check the previous value with the new value.
