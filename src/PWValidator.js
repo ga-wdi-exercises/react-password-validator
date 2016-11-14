@@ -27,7 +27,6 @@ class PWValidator extends Component {
   }
   //confirms new pass
   handleConfirmPass(e) {
-    console.log(e.target.value)
     this.setState({
       confirmPass: e.target.value,
     })
@@ -35,11 +34,18 @@ class PWValidator extends Component {
   //confirms the submission
   handleSubmit(e) {
     console.log("consequences...")
+    //confirms all fields are filled out
+    if (this.state.pass || this.state.confirmPass || this.state.email){
+    alert("fill out the form hoe")
+  }else{
+    //confirms both passwords are the same
     if (this.state.pass === this.state.confirmPass){
       alert("congrats hoe")
     } else{
       alert("try again hoe")
     }
+
+  }
 
     e.preventDefault()
   }
