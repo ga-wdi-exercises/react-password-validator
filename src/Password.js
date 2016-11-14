@@ -41,16 +41,16 @@ class Password extends Component {
     } else {
       this.setState({
         alert: "Password field is empty.",
-        alertClass: "alert",
+        alertClass: "warning",
       })
     }
   }
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Log In</h1>
-        <div className={this.state.alertClass}>{this.state.alert}</div>
+        <div className={this.state.alertClass + " alert"}>{this.state.alert}</div>
         <form onSubmit={e => this.validatePassword(e)}>
           <label>Email</label>
           <input name="email" />
