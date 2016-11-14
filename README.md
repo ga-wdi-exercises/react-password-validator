@@ -1,4 +1,4 @@
-# React Stopwatch
+# React Password Validator
 
 ## Getting Started
 
