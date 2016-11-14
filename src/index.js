@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import PWValidator from './PWValidator';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <PWValidator />,
   document.getElementById('root')
 );
