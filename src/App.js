@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      validation: ''
+    }
+  }
+password(e){
+    this.setState({password: e.target.value})
+  }
+
+validation(e){
+    this.setState({validation: e.target.value})
+  }
+  checkPassword(){
+    console.log(this.state.password)
+    if(this.state.password === this.state.validation){
+      alert("You are signed in!")
+    }else{
+      alert("Try again!")
+    }
+  }
   render() {
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <h1>Sign In </h1>
+        <form>
+        Name:
+        <input type="text" />
+        Password:
+        <input type="password" value={this.state.password} onChange={ e => this.password(e) }/>
+        Confirm Password:
+        <input type="password" value={this.state.validation} onChange={e => this.validation(e)}/>
+        <button onClick={()=>{this.checkPassword()}}>Submit</button>
+        </form>
       </div>
     );
   }
