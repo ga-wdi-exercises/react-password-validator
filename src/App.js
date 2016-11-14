@@ -8,10 +8,16 @@ class Validator extends Component {
     super()
   }
   handleClick(e){
-    let email = document.getElementById("email")
-    let password = document.getElementById("password")
-    let confirmation = document.getElementById("confirmation")
+    let email = document.getElementById("email").value
+    let password = document.getElementById("password").value
+    let confirmation = document.getElementById("confirmation").value
 
+    if (password === confirmation){
+      return alert("Log in created!")
+    }
+    else{
+      return alert("Password does not match.")
+    }
   }
   render() {
     return (
