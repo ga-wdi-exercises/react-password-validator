@@ -1,21 +1,76 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+  constructor (props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      validation: '',
+      valid: true
+    };
   }
-}
+
+  username (e) {
+    this.setState({username: e.target.value})
+  }
+
+  password (e) {
+    this.setState({password: e.target.value})
+  }
+
+  validation (e) {
+    this.setState({validation: e.target.value})
+  }
+
+  submit (e) {
+    e.preventDefault()
+    this.checkValidity()
+  }
+
+  checkValidity () {
+    if (this.state.password === this.state.passwordConfirm){
+      this.setState({ valid: true})
+    } else {
+      this.setState({ valid: false})
+    }
+  }
+    render() {
+      return (
+        <div className="App">
+        
+          <input onChange={(e) => this.username(e)} type="text" placeholder="username" />
+
+          <input onChange={(e) => this.password(e)} type="text" placeholder="password" />
+
+          <input onChange={(e) => this.validation(e)} type="text" placeholder="validation" />
+
+          <input type="submit" onClick={(e) => this.submit(e)} value="submit" />
+
+          </div>
+
+      );
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default App;
