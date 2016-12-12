@@ -1,21 +1,61 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+  constructor(props) {
+      super(props);
+      this.state = {
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        valid: true
+      };
+    }
+
+    handleEmail(event) {
+      this.setState({
+        email: event.target.value
+      });
+    }
+    handlePassword(event) {
+      this.setState({
+        password: event.target.value
+      });
+    }
+    handlePasswordConfirm(event) {
+      this.setState({
+        passwordConfirm: event.target.value
+      });
+    }
+
+    handleSubmit(event) {
+      event.preventDefault();
+      this.checkValidity()
+    }
+
+    checkValidity () {
+      if (this.state.password === this.state.passwordConfirm) {
+          this.setState({ valid: true })
+          console.log("Heyy");
+      } else {
+        this.setState({ valid: false })
+        console.log("Nooooo");
+      }
+    }
+
+    render() {
+      let validText = this.state.valid ? "Valid!" : "Passwords do not match"
+      return (
+      <div>
+        <input onChange={(event) => this.handleEmail(event)} type="text" placeholder="email" />
+        <input onChange={(event) => this.handlePassword(event)} type="password" placeholder="password" />
+        <input onChange={(event) => this.handlePasswordConfirm(event)} type="password" placeholder="confirm password" />
+        <input type="submit" onClick={(event) => this.handleSubmit(event)} value="submit" />
+        <p>{validText}</p>
       </div>
-    );
+      );
+    }
   }
-}
 
 export default App;
