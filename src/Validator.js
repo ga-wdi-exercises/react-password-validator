@@ -6,29 +6,51 @@ class Validator extends Component {
     super()
     this.state = {
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
+      valid: true
     }
 
-    this.handleChange = this.handleChange.bind(this)
+    this.handlePassword = this.handlePassword.bind(this)
+    this.confirmPassword = this.confirmPassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(event){
-    this.setSet({
-      password: event.target.value, 
+  handlePassword(event){
+    this.setState({
+      password: event.target.value
+    })
+  }
+
+  handleConfirmPassword(event){
+    this.setState({
       confirmPassword: event.target.value
     })
   }
 
-  render() {
-    return (
-      <div className="form">
+  handleSubmit(event){
+    alert("password incorrect")
+    event.preventDefault();
+    this.checkValidity();
+  }
+
+  checkValidity () {
+    if (this.state.password === this.state.confirmPassword) {
+        this.setState({ valid: true })
+    } else {
+      this.setState({ valid: false })
+    }
+
+
+  render(){
+     let validText = this.state.valid ? "Valid!" : "Passwords do not match"
+     return (
+      <form onSubmit={this.handleSubmit}>
         <h1>Sign Up</h1>
-        <input type="text" placeholder="email" />
-        <input type="password" placeholder="password"/>
-        <input type="password" placeholder="confirm password"/>
+        <input  type="text" placeholder="email" />
+        <input onChange={(event) => this.handlePassword} type="password" value={this.state.value}  placeholder="password"/>
+        <input onChange={(event) => this.handleConfirmPassword} type="password" value={this.state.value}  placeholder="confirm password"/>
         <input type="submit" value="Submit"/>
-      </div>
+      </form>
     );
   }
 }
