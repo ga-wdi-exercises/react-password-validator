@@ -8,6 +8,12 @@ class Validator extends Component {
       body: props.body
     }
   }
+  handleClick (event){
+    let newBody = prompt("Password doesn't match")
+    this.setState({
+      body: newBody
+    })
+  }
   render() {
     return (
       <div className="form">
@@ -15,7 +21,7 @@ class Validator extends Component {
         <input type="text" placeholder="email" />
         <input type="password" placeholder="password" />
         <input type="password" placeholder="confirm password" />
-        <input type="submit" value="Submit" />
+        <button onClick={(event) => this.handleClick(event)}>Submit</button>
       </div>
     );
   }
