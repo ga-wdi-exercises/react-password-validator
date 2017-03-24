@@ -1,21 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
+this.setState({email: e.target.email})
+    // this.setState({
+    // email: document.getElementById("email").value
+    // password: document.getElementById("password").value
+    // passconf: document.getElementById("passconf").value
+    // })
+    // if (this.state.password == this.state.passconf){
+    //   document.getElementById('message').append("Message");
+    // }
+  }
+  handleClick (e) {
+    console.log(e.target.value)
+    if (e.target.password !== e.target.passconf){
+      getElementById('message').append("Passwords don't match!")
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+      <input type="text" value={this.state.email} onChange={(e) => this.handleChange(e)} />
+      <button onClick={(e) => this.handleClick(e)}>Validate</button>
+      <div id="message"></div>
       </div>
     );
   }
 }
 
-export default App;
+export default Validator;
