@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import "./Validator.css";
 
 class Validator extends Component {
+  constructor (props) {
+    super()
+    this.state = {
+      body: props.body
+    }
+  }
   render() {
     return (
       <div className="form">
