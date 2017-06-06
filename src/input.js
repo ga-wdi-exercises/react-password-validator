@@ -52,7 +52,7 @@ class Input extends Component {
           <input onChange={(e) => this.handlePassword(e)} type="password" placeholder="password" />
           <input onChange={(e) => this.handlePasswordConfirm(e)} type="password" placeholder="confirm password" />
           <input type="submit" onClick={(e) => this.handleSubmit(e)} value="submit" />
-          <p>{validText}</p>
+          <p>{Validat text}</p>
       </div>
     );
   }
