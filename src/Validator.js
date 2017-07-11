@@ -12,6 +12,7 @@ class Validator extends Component {
     }
   }
 
+//Why do  you need .setState for input fields? I understand the submit button as an event listener.
   handleEmail (e) {
     this.setState({
       email: e.target.value
@@ -43,6 +44,8 @@ class Validator extends Component {
     }
   }
 
+
+//What does the ? do?
   render () {
     let validText = this.state.valid ? "Valid!" : "Passwords do not match"
     return (
