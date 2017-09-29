@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import "./Validator.css";
 
-class Validator extends Component {
+class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,8 +39,7 @@ class Validator extends Component {
   render() {
     let validText = this.state.valid ? "Valid!" : "Passwords do not match";
     return (
-      <div className="form">
-        <h1>Sign Up</h1>
+      <div>
         <input onChange={(event) => this.handleEmail(event)} type="text" placeholder="email" />
         <input onChange={(event) => this.handlePassword(event)} type="password" placeholder="password" />
         <input onChange={(event) => this.handlePasswordConfirm(event)} type="password" placeholder="confirm password" />
@@ -52,4 +50,4 @@ class Validator extends Component {
   }
 }
 
-export default Validator;
+export default Input;
