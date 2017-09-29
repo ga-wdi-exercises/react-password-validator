@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import Validator from './Validator';
+import './Validator.css';
 
 ReactDOM.render(
-  <App />,
+  <Validator email={""} password={""} passwordConfirm={""}/>,
   document.getElementById('root')
 );
