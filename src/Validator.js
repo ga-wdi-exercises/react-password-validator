@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./Validator.css";
 
 class Validator extends Component {
+  
   render() {
     return (
       <div className="form">
