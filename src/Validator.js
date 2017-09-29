@@ -10,11 +10,18 @@ class Validator extends Component {
         passwordConfirm: '',
         valid: true
     }
+    this.handleEmail = this.handleEmail.bind(this)
     this.handlePassword = this.handlePassword.bind(this)
     this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.checkValidity = this.checkValidity.bind(this)
   }
+
+    handleEmail(e) {
+      this.setState({
+        email: e.target.value
+      })
+    }
 
     handlePassword(e) {
       this.setState({
@@ -48,17 +55,17 @@ class Validator extends Component {
     }
 
   render() {
-    let whatever = this.state.valid
+    let validation = this.state.valid
     ? "valid"
-    : "fuckoff"
+    : "invalid"
     return (
       <div className="form">
         <h1>Sign Up</h1>
-        <input type="text" placeholder="email"/>
+        <input type="text" placeholder="email" onChange={this.handleEmail}/>
         <input type="password" placeholder="password" onChange={this.handlePassword}/>
         <input type="password" placeholder="confirm password" onChange={this.handlePasswordConfirm}/>
         <input type="submit" value="Submit" onClick={this.handleSubmit}/>
-        {whatever}
+        {validation}
       </div>
     )
   }
